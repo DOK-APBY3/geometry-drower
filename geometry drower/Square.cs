@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace geometry_drower
 {
-    class Triangle
+    class Square
     {
-        private PointClass Point1, Point2, Point3;
+        private PointClass Point1, Point2, Point3, Point4;
 
-        public Triangle(PointClass point1, PointClass point2, PointClass point3)
+        public Square(PointClass point1, PointClass point2, PointClass point3, PointClass point4)
         {
             this.Point1 = point1;
             this.Point2 = point2;
             this.Point3 = point3;
+            this.Point4 = point4;
         }
 
         public void move(int DelX, int DelY)
@@ -23,6 +23,7 @@ namespace geometry_drower
             movePoint(Point1, DelX, DelY);
             movePoint(Point2, DelX, DelY);
             movePoint(Point3, DelX, DelY);
+            movePoint(Point4, DelX, DelY);
         }
 
         private void movePoint(PointClass point, int Dx, int Dy)
@@ -30,6 +31,5 @@ namespace geometry_drower
             point.addXP(Dx);
             point.addYP(Dy);
         }
-
     }
 }
