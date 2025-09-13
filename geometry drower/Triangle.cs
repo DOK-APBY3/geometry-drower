@@ -18,13 +18,27 @@ namespace geometry_drower
             this.Point3 = point3;
         }
 
+        public void addX(int DelX)
+        {
+            Point1.addXP(DelX);
+            Point2.addXP(DelX);
+            Point3.addXP(DelX);
+        }
+        public void addY(int DelY)
+        {
+            Point1.addYP(DelY);
+            Point2.addYP(DelY);
+            Point3.addYP(DelY);
+        }
+
+
+
         public void move(int DelX, int DelY)
         {
             movePoint(Point1, DelX, DelY);
             movePoint(Point2, DelX, DelY);
             movePoint(Point3, DelX, DelY);
         }
-
         private void movePoint(PointClass point, int Dx, int Dy)
         {
             point.addXP(Dx);
