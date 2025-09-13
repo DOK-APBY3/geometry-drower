@@ -30,7 +30,18 @@ namespace geometry_drower
             Point2.addYP(DelY);
             Point3.addYP(DelY);
         }
-
+        public PointClass getP1()
+        {
+            return Point1;
+        }
+        public PointClass getP2()
+        {
+            return Point2;
+        }
+        public PointClass getP3()
+        {
+            return Point3;
+        }
 
 
         public void move(int DelX, int DelY)

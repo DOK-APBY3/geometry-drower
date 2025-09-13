@@ -34,7 +34,22 @@ namespace geometry_drower
         }
 
 
-        
+        public PointClass getP1()
+        {
+            return Point1;
+        }
+        public PointClass getP2()
+        {
+            return Point2;
+        }
+        public PointClass getP3()
+        {
+            return Point3;
+        }
+        public PointClass getP4()
+        {
+            return Point4;
+        }
 
         public void move(int DelX, int DelY)
         {
