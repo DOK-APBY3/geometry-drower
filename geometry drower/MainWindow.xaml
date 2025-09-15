@@ -8,6 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Canvas Name="Scene"/>
+        <!--канвас чисто плейсхолдер-->
 
     </Grid>
+    
 </Window>
