@@ -18,17 +18,23 @@ namespace geometry_drower
             this.Point3 = point3;
         }
 
+        public delegate void HadMooved(string tyoe);
+        public event HadMooved? MooveEvent;
+
         public void addX(int DelX)
         {
             Point1.addXP(DelX);
             Point2.addXP(DelX);
             Point3.addXP(DelX);
+            MooveEvent?.Invoke("T");
+
         }
         public void addY(int DelY)
         {
             Point1.addYP(DelY);
             Point2.addYP(DelY);
             Point3.addYP(DelY);
+            MooveEvent?.Invoke("T");
         }
         public PointClass getP1()
         {

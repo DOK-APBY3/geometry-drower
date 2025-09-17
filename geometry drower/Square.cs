@@ -18,12 +18,16 @@ namespace geometry_drower
             this.Point4 = point4;
         }
 
+        public delegate void HadMooved(string tyoe);
+        public event HadMooved? MooveEvent;
+
         public void addX(int DelX)
         {
             Point1.addXP(DelX);
             Point2.addXP(DelX);
             Point3.addXP(DelX);
             Point4.addXP(DelX);
+            MooveEvent?.Invoke("S");
         }
         public void addY(int DelY)
         {
@@ -31,7 +35,9 @@ namespace geometry_drower
             Point2.addYP(DelY);
             Point3.addYP(DelY);
             Point4.addYP(DelY);
+            MooveEvent?.Invoke("S");
         }
+
 
 
         public PointClass getP1()
