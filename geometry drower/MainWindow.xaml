@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:geometry_drower"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="550" Width="800">
+    <Grid RenderTransformOrigin="0.188,0.34">
+        <Canvas x:Name="Scene" HorizontalAlignment="Center" Height="285" VerticalAlignment="Top" Width="680" Margin="0,220,0,0"  Background="#FFB2ADAD"/>
+        <Button Content="Произвольный &#xA;треугольник" Margin="60,10,555,440" Click="Button_triangle"/>
+        <Button Content="Произвольный &#xA;прямоугольник" Margin="308,10,310,440" Click="Button_rectangle"/>
+        <Button Content="Квадрат" Margin="555,10,60,440" Click="Button_square"/>
+        <Slider Margin="210,120,150,368" ValueChanged="Slider_Change_X"/>
+        <Slider Margin="210,169,150,322" ValueChanged="Slider_Change_Y"/>
+        <TextBlock TextWrapping="Wrap" Height="24" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,120,0,0"><Run Language="ru-ru" Text="Сдвиг по Х:"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Height="24" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,169,0,0"><Run Language="ru-ru" Text="Сдвиг по Y:"/></TextBlock>
     </Grid>
 </Window>
