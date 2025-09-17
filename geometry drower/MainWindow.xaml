@@ -11,9 +11,9 @@
         <Button Content="Произвольный &#xA;треугольник" Margin="60,10,555,440" Click="Button_triangle"/>
         <Button Content="Произвольный &#xA;прямоугольник" Margin="308,10,310,440" Click="Button_rectangle"/>
         <Button Content="Квадрат" Margin="555,10,60,440" Click="Button_square"/>
-        <Slider Margin="210,120,150,390" ValueChanged="Slider_Change_X"/>
-        <Slider Margin="210,170,150,340" ValueChanged="Slider_Change_Y"/>
-        <TextBlock TextWrapping="Wrap" Text="Сдвиг по Y:" Margin="120,170,610,340"/>
+        <Slider Margin="210,120,150,368" ValueChanged="Slider_Change_X"/>
+        <Slider Margin="210,169,150,322" ValueChanged="Slider_Change_Y"/>
         <TextBlock TextWrapping="Wrap" Height="24" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,120,0,0"><Run Language="ru-ru" Text="Сдвиг по Х:"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Height="24" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,169,0,0"><Run Language="ru-ru" Text="Сдвиг по Y:"/></TextBlock>
     </Grid>
 </Window>

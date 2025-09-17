@@ -28,5 +28,32 @@ public partial class MainWindow : Window
         line.X2 = p2.getX();
         line.Y2 = p2.getY();
         Scene.Children.Add(line);
+
+
+    }
+
+    private void Button_triangle(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void Button_rectangle(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void Button_square(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+
+    }
+
+    private void Slider_Change_Y(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+
     }
 }
