@@ -32,6 +32,7 @@ namespace geometry_drower
 
         }
 
+
         public int getX()
         {
             return X;

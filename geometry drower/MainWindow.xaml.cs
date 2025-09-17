@@ -43,17 +43,17 @@ public partial class MainWindow : Window
 
     private void Button_triangle(object sender, RoutedEventArgs e)
     {
-
+        createTriangle();
     }
 
     private void Button_rectangle(object sender, RoutedEventArgs e)
     {
-
+        createRectangle();
     }
 
     private void Button_square(object sender, RoutedEventArgs e)
     {
-
+        createSqare();
     }
 
     private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<double> e)
