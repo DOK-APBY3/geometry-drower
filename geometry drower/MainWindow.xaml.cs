@@ -98,6 +98,7 @@ public partial class MainWindow : Window
         PointClass point2 = new PointClass(Convert.ToInt32(point1.getX), Convert.ToInt32(point1.getY) + yLenght); // левая нижняя точка
         PointClass point3 = new PointClass(Convert.ToInt32(point1.getX) + xlenght, Convert.ToInt32(point1.getY)); // правая верхняя
         PointClass point4 = new PointClass(Convert.ToInt32(point1.getX) + xlenght, Convert.ToInt32(point1.getY) + yLenght); //  правая нижняя
+
         rect = new Square(point1, point2, point3, point4);
         squ.MooveEvent += moover;
     }
@@ -112,6 +113,12 @@ public partial class MainWindow : Window
         {
 
         }
+
+        public void ClearScene()
+    {
+        
+        Scene.Children.Clear();
     }
+}
   
 }
