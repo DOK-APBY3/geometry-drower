@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,12 +8,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace geometry_drower;
 
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
 public partial class MainWindow : Window
 {
 
@@ -24,8 +22,46 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+    }
+    public void DrawLine(PointClass p1, PointClass p2)
+    {
+        Line line = new Line();
+        line.Stroke = Brushes.Red;
+        line.StrokeThickness = 3;
+        line.X1 = p1.getX();
+        line.Y1 = p1.getY();
+        line.X2 = p2.getX();
+        line.Y2 = p2.getY();
+        Scene.Children.Add(line);
+
 
     }
+
+    private void Button_triangle(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void Button_rectangle(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void Button_square(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+
+    }
+
+    private void Slider_Change_Y(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+
+    }
+    
 
     public void createTriangle() // треугольник - тупо рандомные точки (чисто теоретически может получиться прямая)
     {
@@ -34,7 +70,7 @@ public partial class MainWindow : Window
         PointClass point3 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
 
         triang = new Triangle(point1, point2, point3);
-    }
+
     public void createSqare() // квадрат - дандомим длину ребра и сторим все точки строго от первой
     {
         PointClass point1 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height)); // первая точка (девая верхняя)
@@ -53,5 +89,5 @@ public partial class MainWindow : Window
         PointClass point4 = new PointClass(Convert.ToInt32(point1.getX) + xlenght, Convert.ToInt32(point1.getY) + yLenght); //  правая нижняя
     }
 
-    //проблема всей этой штуки что её невозможно проверить пока Дима не сделает визуалку
+  
 }
