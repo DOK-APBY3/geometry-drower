@@ -25,13 +25,17 @@ public partial class MainWindow : Window
     }
     public void DrawLine(PointClass p1, PointClass p2)
     {
+        //создание линии
         Line line = new Line();
+        //свойства линии
         line.Stroke = Brushes.Red;
         line.StrokeThickness = 3;
+        //координаты линии
         line.X1 = p1.getX();
         line.Y1 = p1.getY();
         line.X2 = p2.getX();
         line.Y2 = p2.getY();
+        //создание линии в сцене
         Scene.Children.Add(line);
 
 
