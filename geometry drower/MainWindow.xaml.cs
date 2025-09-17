@@ -17,6 +17,7 @@ public partial class MainWindow : Window
 
     Triangle triang;
     Square squ, rect;
+    var currentFigure;
 
     Random rnd = new Random();
     public MainWindow()
@@ -56,9 +57,9 @@ public partial class MainWindow : Window
         createSqare();
     }
 
-    private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<double> e)
+    private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<int> e)
     {
-
+        
     }
 
     private void Slider_Change_Y(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -105,6 +106,7 @@ public partial class MainWindow : Window
 
     void moover(string type)
     {
+        ClearScene();
         if (type == "T")
         {
 
@@ -113,12 +115,10 @@ public partial class MainWindow : Window
         {
 
         }
-
+    }
         public void ClearScene()
     {
-        
         Scene.Children.Clear();
     }
 }
   
-}
