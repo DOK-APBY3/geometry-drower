@@ -19,11 +19,7 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        InitializeComponent();
-
-        //
-
-        
+        InitializeComponent();  
     }
 
     public void DrawLine(PointClass p1, PointClass p2)
