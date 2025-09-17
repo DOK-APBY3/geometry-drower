@@ -58,12 +58,14 @@ public partial class MainWindow : Window
 
     private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<int> e)
     {
-
+        int oldValue = e.OldValue;
+        int newValue = e.NewValue;
     }
 
     private void Slider_Change_Y(object sender, RoutedPropertyChangedEventArgs<int> e)
     {
-
+        int oldValue = e.OldValue; 
+        int newValue = e.NewValue;
     }
 
 
