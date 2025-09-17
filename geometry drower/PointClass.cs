@@ -10,6 +10,7 @@ namespace geometry_drower
     internal class PointClass
     {
         private int X, Y;//переим
+        //
 
         public PointClass(int x, int y)
         {
