@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace geometry_drower
 {
+
     public class PointClass
     {
         private int X, Y;//переим
@@ -21,24 +22,24 @@ namespace geometry_drower
 
         public void addXP(int x)
         {
-            this.X += x;
+            X += x;
 
         }
 
         public void addYP(int y)
         {
-            this.Y += y;
+            Y += y;
 
         }
 
         public int getX()
         {
-            return this.X;
+            return X;
         }
 
         public int getY()
         {
-            return this.Y;
+            return Y;
         }
 
 

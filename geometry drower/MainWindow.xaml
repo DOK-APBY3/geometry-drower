@@ -16,4 +16,5 @@
         <TextBlock TextWrapping="Wrap" Height="24" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,120,0,0"><Run Language="ru-ru" Text="Сдвиг по Х:"/></TextBlock>
         <TextBlock TextWrapping="Wrap" Height="24" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,169,0,0"><Run Language="ru-ru" Text="Сдвиг по Y:"/></TextBlock>
     </Grid>
+    
 </Window>
