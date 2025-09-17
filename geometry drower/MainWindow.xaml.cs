@@ -12,16 +12,12 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace geometry_drower;
 
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
 public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        InitializeComponent();  
+        InitializeComponent();
     }
-
     public void DrawLine(PointClass p1, PointClass p2)
     {
         Line line = new Line();

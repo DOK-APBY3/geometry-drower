@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace geometry_drower
 {
-    internal class PointClass
+    public class PointClass
     {
         private int X, Y;//переим
         //
