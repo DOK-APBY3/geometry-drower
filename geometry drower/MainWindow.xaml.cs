@@ -56,12 +56,12 @@ public partial class MainWindow : Window
         createSqare();
     }
 
-    private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<double> e)
+    private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<int> e)
     {
 
     }
 
-    private void Slider_Change_Y(object sender, RoutedPropertyChangedEventArgs<double> e)
+    private void Slider_Change_Y(object sender, RoutedPropertyChangedEventArgs<int> e)
     {
 
     }
