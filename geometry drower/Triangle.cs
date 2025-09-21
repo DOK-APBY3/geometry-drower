@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace geometry_drower
 {
-    class Triangle
+    class Triangle : GeometryPrimitive
     {
         private PointClass Point1, Point2, Point3;
 
@@ -18,25 +18,29 @@ namespace geometry_drower
             this.Point3 = point3;
         }
 
-        public delegate void HadMooved(string tyoe);
+        public delegate void HadMooved();
         public event HadMooved? MooveEvent;
 
-        public void addX(int DelX)
+        public override void addX(int DelX)
         {
             Point1.addXP(DelX);
             Point2.addXP(DelX);
             Point3.addXP(DelX);
-            MooveEvent?.Invoke("T");
+            MooveEvent?.Invoke();
 
         }
-        public void addY(int DelY)
+        public override void addY(int DelY)
         {
             Point1.addYP(DelY);
             Point2.addYP(DelY);
             Point3.addYP(DelY);
-            MooveEvent?.Invoke("T");
+            MooveEvent?.Invoke();
         }
-        public PointClass getP1()
+        public override List<PointClass> GetAllPoints()
+        {
+            return new List<PointClass> { Point1, Point2, Point3 };
+        }
+        public override PointClass getP1()
         {
             return Point1;
         }
