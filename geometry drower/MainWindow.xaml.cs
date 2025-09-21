@@ -59,12 +59,14 @@ public partial class MainWindow : Window
 
     private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<int> e)
     {
-        
+        int oldValue = e.OldValue;
+        int newValue = e.NewValue;
     }
 
-    private void Slider_Change_Y(object sender, RoutedPropertyChangedEventArgs<double> e)
+    private void Slider_Change_Y(object sender, RoutedPropertyChangedEventArgs<int> e)
     {
-
+        int oldValue = e.OldValue; 
+        int newValue = e.NewValue;
     }
 
 
@@ -77,31 +79,40 @@ public partial class MainWindow : Window
         triang = new Triangle(point1, point2, point3);
         triang.MooveEvent += moover;
 
-       
+        DrawLine(point1, point2);
+        DrawLine(point2, point3);
+        DrawLine(point3, point1);
     }
 
     public void createSqare() // квадрат - дандомим длину ребра и сторим все точки строго от первой
     {
-        PointClass point1 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height)); // первая точка (девая верхняя)
-        int linelenght = (rnd.Next(1, ((int)Scene.Height) - Convert.ToInt32(point1.getX)));
-        PointClass point2 = new PointClass(Convert.ToInt32(point1.getX), Convert.ToInt32(point1.getY) + linelenght); // левая нижняя точка
-        PointClass point3 = new PointClass(Convert.ToInt32(point1.getX) + linelenght, Convert.ToInt32(point1.getY)); // правая верхняя
-        PointClass point4 = new PointClass(Convert.ToInt32(point1.getX) + linelenght, Convert.ToInt32(point1.getY) + linelenght); // спросить почему ругаеттся еси убрать конверт правая нижняя
-        squ = new Square(point1, point2, point3, point4);
-        squ.MooveEvent += moover;
+
+            PointClass point1 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height)); // первая точка (девая верхняя)
+            int linelenght = (rnd.Next(1, ((int)Scene.Height) - Convert.ToInt32(point1.getX)));
+            PointClass point2 = new PointClass(Convert.ToInt32(point1.getX), Convert.ToInt32(point1.getY) + linelenght); // левая нижняя точка
+            PointClass point3 = new PointClass(Convert.ToInt32(point1.getX) + linelenght, Convert.ToInt32(point1.getY)); // правая верхняя
+            PointClass point4 = new PointClass(Convert.ToInt32(point1.getX) + linelenght, Convert.ToInt32(point1.getY) + linelenght); // спросить почему ругаеттся еси убрать конверт правая нижняя
+
+            DrawLine(point1, point2);
+            DrawLine(point2, point3);
+            DrawLine(point3, point4);
+            DrawLine(point4, point1);
     }
+
 
     public void createRectangle() // прямоугольник - рандомим длину и ширину, принцип похож на квадрат
     {
-        PointClass point1 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height)); // первая точка (девая верхняя)
-        int xlenght = (rnd.Next(1, ((int)Scene.Width) - Convert.ToInt32(point1.getX)));
-        int yLenght = (rnd.Next(1, ((int)Scene.Height) - Convert.ToInt32(point1.getX)));
-        PointClass point2 = new PointClass(Convert.ToInt32(point1.getX), Convert.ToInt32(point1.getY) + yLenght); // левая нижняя точка
-        PointClass point3 = new PointClass(Convert.ToInt32(point1.getX) + xlenght, Convert.ToInt32(point1.getY)); // правая верхняя
-        PointClass point4 = new PointClass(Convert.ToInt32(point1.getX) + xlenght, Convert.ToInt32(point1.getY) + yLenght); //  правая нижняя
+            PointClass point1 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height)); // первая точка (девая верхняя)
+            int xlenght = (rnd.Next(1, ((int)Scene.Width) - Convert.ToInt32(point1.getX)));
+            int yLenght = (rnd.Next(1, ((int)Scene.Height) - Convert.ToInt32(point1.getX)));
+            PointClass point2 = new PointClass(Convert.ToInt32(point1.getX), Convert.ToInt32(point1.getY) + yLenght); // левая нижняя точка
+            PointClass point3 = new PointClass(Convert.ToInt32(point1.getX) + xlenght, Convert.ToInt32(point1.getY)); // правая верхняя
+            PointClass point4 = new PointClass(Convert.ToInt32(point1.getX) + xlenght, Convert.ToInt32(point1.getY) + yLenght); //  правая нижняя
 
-        rect = new Square(point1, point2, point3, point4);
-        squ.MooveEvent += moover;
+            DrawLine(point1, point2);
+            DrawLine(point2, point4);
+            DrawLine(point4, point3);
+            DrawLine(point3, point1);
     }
 
     void moover(string type)
