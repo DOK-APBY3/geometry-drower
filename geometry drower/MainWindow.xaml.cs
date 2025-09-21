@@ -16,7 +16,8 @@ public partial class MainWindow : Window
 {
 
     Triangle triang;
-    Square squ, reect;
+    Square squ, rect;
+    var currentFigure;
 
     Random rnd = new Random();
     public MainWindow()
@@ -76,6 +77,7 @@ public partial class MainWindow : Window
         PointClass point3 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
 
         triang = new Triangle(point1, point2, point3);
+        triang.MooveEvent += moover;
 
         DrawLine(point1, point2);
         DrawLine(point2, point3);
@@ -84,6 +86,7 @@ public partial class MainWindow : Window
 
     public void createSqare() // квадрат - дандомим длину ребра и сторим все точки строго от первой
     {
+
             PointClass point1 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height)); // первая точка (девая верхняя)
             int linelenght = (rnd.Next(1, ((int)Scene.Height) - Convert.ToInt32(point1.getX)));
             PointClass point2 = new PointClass(Convert.ToInt32(point1.getX), Convert.ToInt32(point1.getY) + linelenght); // левая нижняя точка
@@ -112,6 +115,21 @@ public partial class MainWindow : Window
             DrawLine(point3, point1);
     }
 
+    void moover(string type)
+    {
+        ClearScene();
+        if (type == "T")
+        {
 
-  
+        }
+        else if (type == "S")
+        {
+
+        }
+    }
+        public void ClearScene()
+    {
+        Scene.Children.Clear();
+    }
 }
+  
