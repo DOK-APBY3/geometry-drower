@@ -51,10 +51,10 @@ public partial class MainWindow : Window
         createSqare();
     }
 
-    private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<double> e)
+    private void Slider_Change_X(object sender, RoutedPropertyChangedEventArgs<double> e) // при изменении значения слайдера находим разность старого и нового значения и передаём в двигатель фигуры
     {
         int newVal = Convert.ToInt32(e.NewValue);
-        if (currentFigure != null)
+        if (currentFigure != null) // когда слайдер создаётся он выкидывает изменени значения а фигуры ещё нету,так что мы чиним баг
         {
             int DeltaX = newVal - currentFigure.getP1().getX();
             currentFigure.addX(DeltaX);
@@ -73,11 +73,11 @@ public partial class MainWindow : Window
     }
 
 
-    public void createTriangle() // треугольник - тупо рандомные точки (чисто теоретически может получиться прямая)
+    public void createTriangle() // треугольник - делаем первую точку а потом от неё правее и ниже рандомим две другие (когда все три рандомили вторая и третья точки иногда спавнились за полем)
     {
-        PointClass point1 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
-        PointClass point2 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
-        PointClass point3 = new PointClass(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
+        PointClass point1 = new PointClass(rnd.Next(1, (int)Scene.Width), rnd.Next(1, (int)Scene.Height));
+        PointClass point2 = new PointClass(point1.getX() + rnd.Next(1, (int)Scene.Width - point1.getX()), point1.getY() + rnd.Next(1, (int)Scene.Height - point1.getY()));
+        PointClass point3 = new PointClass(point1.getX() + rnd.Next(1, (int)Scene.Width - point1.getX()), point1.getY() + rnd.Next(1, (int)Scene.Height - point1.getY()));
 
         triang = new Triangle(point1, point2, point3);
         triang.MooveEvent += moover;
@@ -94,8 +94,8 @@ public partial class MainWindow : Window
         SliderX.Value = minX;
         SliderY.Value = minY;
 
-        SliderX.Maximum = Scene.Width - maxX;
-        SliderY.Maximum = Scene.Height - maxY;
+        SliderX.Maximum = Scene.Width - (maxX - minX); // настраиваем слайдеры чтобы фигуры не выходили за поле
+        SliderY.Maximum = Scene.Height - (maxY - minY);
 
     }
 
@@ -134,7 +134,7 @@ public partial class MainWindow : Window
         SLiderSetupper(currentFigure);
     }
 
-    void moover()
+    void moover() // чистим сцену, после получаем список всех точек фигуры, после чего их перебираем
     {
         ClearScene();
         allPoints.Clear();
@@ -146,11 +146,11 @@ public partial class MainWindow : Window
             DrawLine(allPoints[i - 1], allPoints[i]);
             lastI = i;
         }
-        DrawLine(allPoints[0], allPoints[lastI]);
+        DrawLine(allPoints[0], allPoints[lastI]); //соединяем пурвую и последнюю точки
 
     }
 
-    public void SLiderSetupper(GeometryPrimitive figure)
+    public void SLiderSetupper(GeometryPrimitive figure) // настраиваем слайдеры чтобы фигуры не выходили за поле
     {
         List<PointClass> allPointsOffTri = figure.GetAllPoints();
 
@@ -162,8 +162,9 @@ public partial class MainWindow : Window
         SliderX.Value = minX;
         SliderY.Value = minY;
 
-        SliderX.Maximum = Scene.Width - maxX;
-        SliderY.Maximum = Scene.Height - maxY;
+
+        SliderX.Maximum = Scene.Width - (maxX - minX);
+        SliderY.Maximum = Scene.Height - (maxY - minY);
     }
 
     public void ClearScene()
