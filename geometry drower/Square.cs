@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace geometry_drower
 {
-    class Triangle : GeometryPrimitive
+    class Square : GeometryPrimitive
     {
-        private PointClass Point1, Point2, Point3;
+        private PointClass Point1, Point2, Point3, Point4;
 
-        public Triangle(PointClass point1, PointClass point2, PointClass point3)
+        public Square(PointClass point1, PointClass point2, PointClass point3, PointClass point4)
         {
             this.Point1 = point1;
             this.Point2 = point2;
             this.Point3 = point3;
+            this.Point4 = point4;
         }
 
         public delegate void HadMooved();
@@ -26,20 +26,26 @@ namespace geometry_drower
             Point1.addXP(DelX);
             Point2.addXP(DelX);
             Point3.addXP(DelX);
+            Point4.addXP(DelX);
             MooveEvent?.Invoke();
-
         }
         public override void addY(int DelY)
         {
             Point1.addYP(DelY);
             Point2.addYP(DelY);
             Point3.addYP(DelY);
+            Point4.addYP(DelY);
             MooveEvent?.Invoke();
         }
+
         public override List<PointClass> GetAllPoints()
         {
-            return new List<PointClass> { Point1, Point2, Point3 };
+            return new List<PointClass> { Point1, Point2, Point3, Point4 };
         }
+
+
+
+
         public override PointClass getP1()
         {
             return Point1;
@@ -52,19 +58,23 @@ namespace geometry_drower
         {
             return Point3;
         }
-
+        public PointClass getP4()
+        {
+            return Point4;
+        }
 
         public void move(int DelX, int DelY)
         {
             movePoint(Point1, DelX, DelY);
             movePoint(Point2, DelX, DelY);
             movePoint(Point3, DelX, DelY);
+            movePoint(Point4, DelX, DelY);
         }
+
         private void movePoint(PointClass point, int Dx, int Dy)
         {
             point.addXP(Dx);
             point.addYP(Dy);
         }
-
     }
 }
